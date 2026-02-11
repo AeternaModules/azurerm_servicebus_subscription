@@ -26,20 +26,20 @@ EOT
     max_delivery_count                        = number
     name                                      = string
     topic_id                                  = string
-    auto_delete_on_idle                       = optional(string, "P10675199DT2H48M5.4775807S")
+    auto_delete_on_idle                       = optional(string) # Default: "P10675199DT2H48M5.4775807S"
     batched_operations_enabled                = optional(bool)
-    client_scoped_subscription_enabled        = optional(bool, false)
-    dead_lettering_on_filter_evaluation_error = optional(bool, true)
+    client_scoped_subscription_enabled        = optional(bool) # Default: false
+    dead_lettering_on_filter_evaluation_error = optional(bool) # Default: true
     dead_lettering_on_message_expiration      = optional(bool)
-    default_message_ttl                       = optional(string, "P10675199DT2H48M5.4775807S")
+    default_message_ttl                       = optional(string) # Default: "P10675199DT2H48M5.4775807S"
     forward_dead_lettered_messages_to         = optional(string)
     forward_to                                = optional(string)
-    lock_duration                             = optional(string, "PT1M")
+    lock_duration                             = optional(string) # Default: "PT1M"
     requires_session                          = optional(bool)
-    status                                    = optional(string, "Active")
+    status                                    = optional(string) # Default: "Active"
     client_scoped_subscription = optional(object({
       client_id                               = optional(string)
-      is_client_scoped_subscription_shareable = optional(bool, true)
+      is_client_scoped_subscription_shareable = optional(bool) # Default: true
     }))
   }))
 }
