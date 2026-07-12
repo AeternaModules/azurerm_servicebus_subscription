@@ -1,3 +1,7 @@
+output "servicebus_subscriptions_id" {
+  description = "Map of id values across all servicebus_subscriptions, keyed the same as var.servicebus_subscriptions"
+  value       = { for k, v in azurerm_servicebus_subscription.servicebus_subscriptions : k => v.id }
+}
 output "servicebus_subscriptions_auto_delete_on_idle" {
   description = "Map of auto_delete_on_idle values across all servicebus_subscriptions, keyed the same as var.servicebus_subscriptions"
   value       = { for k, v in azurerm_servicebus_subscription.servicebus_subscriptions : k => v.auto_delete_on_idle }
