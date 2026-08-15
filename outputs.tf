@@ -12,7 +12,7 @@ output "servicebus_subscriptions_batched_operations_enabled" {
 }
 output "servicebus_subscriptions_client_scoped_subscription" {
   description = "Map of client_scoped_subscription values across all servicebus_subscriptions, keyed the same as var.servicebus_subscriptions"
-  value       = { for k, v in azurerm_servicebus_subscription.servicebus_subscriptions : k => v.client_scoped_subscription if v.client_scoped_subscription != null && length(v.client_scoped_subscription) > 0 }
+  value       = { for k, v in azurerm_servicebus_subscription.servicebus_subscriptions : k => one(v.client_scoped_subscription) if v.client_scoped_subscription != null && length(v.client_scoped_subscription) > 0 }
 }
 output "servicebus_subscriptions_client_scoped_subscription_enabled" {
   description = "Map of client_scoped_subscription_enabled values across all servicebus_subscriptions, keyed the same as var.servicebus_subscriptions"
